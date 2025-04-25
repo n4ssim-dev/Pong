@@ -31,6 +31,7 @@ while game_is_on:
     screen.update()
     time.sleep(0.01)
     ball.move_ball()
+    score.draw_score()
 
     if direction_up:
         if racket.rackets[1].ycor() < 200:
@@ -56,9 +57,12 @@ while game_is_on:
     if ball.ball_list[0].xcor() > 380:
         score.increment_player_score()
         ball.reset_position()
+        score.draw_score()
+
 
     if ball.ball_list[0].xcor() < -380:
         score.increment_bot_score()
         ball.reset_position()
+        score.draw_score()
 
 screen.exitonclick()
